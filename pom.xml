@@ -18,12 +18,12 @@
 		<version.maven-javadoc-plugin>3.6.3</version.maven-javadoc-plugin>
 		<version.maven-gpg-plugin>3.2.1</version.maven-gpg-plugin>
 		<version.maven-surefire-plugin>3.2.5</version.maven-surefire-plugin>
-		<version.nexus-staging-maven-plugin>1.6.13</version.nexus-staging-maven-plugin>
+		<version.central-publishing-maven-plugin>0.10.0</version.central-publishing-maven-plugin>
 
 		<version.maven-plugin-plugin>3.15.1</version.maven-plugin-plugin>
 		<version.maven-plugin-annotations>3.6.0</version.maven-plugin-annotations>
 		<version.maven-plugin-api>3.6.1</version.maven-plugin-api>
-		<version.junit-jupiter-api>5.10.2</version.junit-jupiter-api>
+		<version.junit-jupiter>6.1.0-M1</version.junit-jupiter>
 	</properties>
 	<licenses>
 		<license>
@@ -46,16 +46,6 @@
 			scm:git:https://github.com/haducloc/appslandia-page-layout.git</developerConnection>
 		<url>https://github.com/haducloc/appslandia-page-layout.git</url>
 	</scm>
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-	</distributionManagement>
 	<build>
 		<plugins>
 			<plugin>
@@ -78,6 +68,11 @@
 						</manifestEntries>
 					</archive>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${version.maven-surefire-plugin}</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -136,14 +131,19 @@
 						</executions>
 					</plugin>
 					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>${version.nexus-staging-maven-plugin}</version>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>${version.maven-surefire-plugin}</version>
+					</plugin>
+					<plugin>
+						<groupId>org.sonatype.central</groupId>
+						<artifactId>central-publishing-maven-plugin</artifactId>
+						<version>${version.central-publishing-maven-plugin}</version>
 						<extensions>true</extensions>
 						<configuration>
-							<serverId>ossrh</serverId>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-							<autoReleaseAfterClose>false</autoReleaseAfterClose>
+							<publishingServerId>central</publishingServerId>
+							<autoPublish>true</autoPublish>
+							<waitUntil>published</waitUntil>
 						</configuration>
 					</plugin>
 					<plugin>
@@ -180,7 +180,7 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${version.junit-jupiter-api}</version>
+			<version>${version.junit-jupiter}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
