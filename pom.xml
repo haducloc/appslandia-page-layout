@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.appslandia</groupId>
 	<artifactId>appslandia-page-layout</artifactId>
-	<version>1.3.0</version>
+	<version>1.4.0</version>
 	<name>appslandia-page-layout</name>
 	<packaging>maven-plugin</packaging>
 	<description>AppsLandia Page Layout</description>
