@@ -122,7 +122,10 @@ public class ViewProcessor {
     var outViewPath = resolvePath(this.baseDir, this.outputViewsDir);
 
     if (Files.exists(outViewPath)) {
-      FileUtils.deleteRecursively(outViewPath);
+      try {
+        FileUtils.deleteRecursively(outViewPath);
+      } catch (IOException ignore) {
+      }
     }
 
     doProcess(inputViewsPath, outViewPath, configPath);
