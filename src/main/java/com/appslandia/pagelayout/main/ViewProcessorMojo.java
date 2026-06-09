@@ -81,7 +81,7 @@ public class ViewProcessorMojo extends AbstractMojo {
     }
 
     try {
-      new ViewProcessor().baseDir(this.baseDir.toPath()).inputViewsDir(this.inputViewsDir)
+      new ViewProcessor().mavenLogger(getLog()).baseDir(this.baseDir.toPath()).inputViewsDir(this.inputViewsDir)
           .outputViewsDir(this.outputViewsDir).configDir(this.configDir).debugVariables(this.debugVariables)
           .removeBlankLines(this.removeBlankLines).process();
 

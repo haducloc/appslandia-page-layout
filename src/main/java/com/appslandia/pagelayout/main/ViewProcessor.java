@@ -36,6 +36,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
+import org.apache.maven.plugin.logging.Log;
+
 import com.appslandia.pagelayout.utils.Arguments;
 import com.appslandia.pagelayout.utils.FileNameUtils;
 import com.appslandia.pagelayout.utils.FileUtils;
@@ -49,6 +51,7 @@ import com.appslandia.pagelayout.utils.ViewUtils;
  */
 public class ViewProcessor {
 
+  private Log logger;
   private Path baseDir;
   private String inputViewsDir;
   private String outputViewsDir;
@@ -57,6 +60,11 @@ public class ViewProcessor {
   private String viewSuffixes = ".jsp,.jspx,.xhtml,.peb";
   private boolean removeBlankLines;
   private boolean debugVariables;
+
+  public ViewProcessor mavenLogger(Log logger) {
+    this.logger = logger;
+    return this;
+  }
 
   public ViewProcessor baseDir(Path baseDir) {
     this.baseDir = baseDir;
@@ -121,10 +129,16 @@ public class ViewProcessor {
 
     var outViewPath = resolvePath(this.baseDir, this.outputViewsDir);
 
+    // Delete outViewPath
     if (Files.exists(outViewPath)) {
       try {
         FileUtils.deleteRecursively(outViewPath);
       } catch (IOException ignore) {
+        if (logger != null) {
+          logger.warn(String.format(
+              "Failed to completely delete output view directory '%s'. You may need to delete it manually.",
+              outViewPath));
+        }
       }
     }
 
