@@ -32,7 +32,7 @@
 
         <debugVariables>false</debugVariables>
         <removeBlankLines>false</removeBlankLines>
-        <skipPlugin>false</skipPlugin>
+        <disablePlugin>false</disablePlugin>
       </configuration>
 
       <executions>

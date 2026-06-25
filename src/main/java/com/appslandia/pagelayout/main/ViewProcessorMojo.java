@@ -52,8 +52,8 @@ public class ViewProcessorMojo extends AbstractMojo {
   @Parameter(property = "viewSuffixes", defaultValue = ".jsp,.xhtml,.peb")
   protected String viewSuffixes;
 
-  @Parameter(property = "skipPlugin", defaultValue = "false")
-  private boolean skipPlugin;
+  @Parameter(property = "disablePlugin", defaultValue = "false")
+  private boolean disablePlugin;
 
   @Parameter(property = "debugVariables", defaultValue = "false")
   private boolean debugVariables;
@@ -73,10 +73,10 @@ public class ViewProcessorMojo extends AbstractMojo {
 
     getLog().info("debugVariables: " + this.debugVariables);
     getLog().info("removeBlankLines: " + this.removeBlankLines);
-    getLog().info("skipPlugin: " + this.skipPlugin);
+    getLog().info("disablePlugin: " + this.disablePlugin);
 
-    if (this.skipPlugin) {
-      getLog().info("Execution skipped because skipPlugin=true.");
+    if (this.disablePlugin) {
+      getLog().info("Execution skipped because disablePlugin=true.");
       return;
     }
 
