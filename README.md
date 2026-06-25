@@ -20,7 +20,7 @@
     <plugin>
       <groupId>com.appslandia</groupId>
       <artifactId>appslandia-page-layout</artifactId>
-      <version>1.4.0</version>
+      <version>1.5.0</version>
 
       <configuration>
         <baseDir>${project.basedir}</baseDir>
