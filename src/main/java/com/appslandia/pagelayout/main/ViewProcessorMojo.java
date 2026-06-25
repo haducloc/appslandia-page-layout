@@ -49,7 +49,7 @@ public class ViewProcessorMojo extends AbstractMojo {
   @Parameter(property = "configDir", defaultValue = "WebContent/WEB-INF/__views/__config")
   protected String configDir;
 
-  @Parameter(property = "viewSuffixes", defaultValue = ".jsp,.jspx,.xhtml,.peb")
+  @Parameter(property = "viewSuffixes", defaultValue = ".jsp,.xhtml,.peb")
   protected String viewSuffixes;
 
   @Parameter(property = "skipPlugin", defaultValue = "false")

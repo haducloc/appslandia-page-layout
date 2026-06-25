@@ -4,7 +4,7 @@
 - A powerful tool for managing web page layouts
 - Supports defining and referencing variables
 - Enables defining sections and injecting them dynamically
-- View engines: `JSP/JSPX`, `Facelets`, `Pebble`, etc
+- View engines: `JSP`, `Facelets`, `Pebble`, etc
 
 ## Installation
 
