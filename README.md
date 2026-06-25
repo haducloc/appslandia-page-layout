@@ -28,7 +28,7 @@
         <configDir>WebContent/WEB-INF/__views/__config</configDir>        
         <outputViewsDir>WebContent/WEB-INF/views</outputViewsDir>
 
-        <viewSuffixes>.jsp,.jspx,.xhtml,.peb</viewSuffixes>
+        <viewSuffixes>.jsp,.xhtml,.peb</viewSuffixes>
 
         <debugVariables>false</debugVariables>
         <removeBlankLines>false</removeBlankLines>

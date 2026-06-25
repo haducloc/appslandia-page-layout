@@ -57,7 +57,7 @@ public class ViewProcessor {
   private String outputViewsDir;
   private String configDir;
 
-  private String viewSuffixes = ".jsp,.jspx,.xhtml,.peb";
+  private String viewSuffixes = ".jsp,.xhtml,.peb";
   private boolean removeBlankLines;
   private boolean debugVariables;
 

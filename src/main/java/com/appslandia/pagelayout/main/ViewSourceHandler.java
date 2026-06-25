@@ -43,7 +43,6 @@ public abstract class ViewSourceHandler {
     Map<String, ViewSourceHandler> map = new HashMap<>();
 
     map.put(".jsp", new JspViewHandler());
-    map.put(".jspx", new JspViewHandler());
     map.put(".xhtml", new FaceletViewHandler());
     map.put(".peb", new PebbleViewHandler());
 
